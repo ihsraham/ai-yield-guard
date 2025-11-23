@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { createInterface } from 'readline'
 import { formatUnits } from 'ethers'
 import { loadConfig, type Env } from '../config/env.js'

@@ -1,8 +1,30 @@
 {
     "name": "ai-yield-guard",
     "version": "1.0.0",
-    "description": "An AI-assisted DeFi rebalancer powered by WDK",
+    "description": "A Sovereign Financial Node powered by WDK. An autonomous, self-custodial DeFi agent that manages its own yield and identity (ERC-8004).",
     "main": "dist/index.js",
+    "license": "MIT",
+    "author": "Maharshi Mishra",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/maharshi-mishra/ai-yield-guard"
+    },
+    "homepage": "https://github.com/maharshi-mishra/ai-yield-guard",
+    "bugs": {
+        "url": "https://github.com/maharshi-mishra/ai-yield-guard/issues"
+    },
+    "keywords": [
+        "wdk",
+        "ai",
+        "agent",
+        "ai-agent",
+        "autonomous",
+        "defi",
+        "aave-v3",
+        "soverign-finance",
+        "erc-8004",
+        "typescript"
+    ],
     "bin": {
         "ai-yield-guard": "./dist/cli/runAgent.js"
     },
