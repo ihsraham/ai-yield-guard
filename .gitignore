@@ -1,4 +1,29 @@
+# Dependencies
 node_modules
+.pnp
+.pnp.js
+
+# Testing
+coverage
+
+# Production
 dist
-.env
+build
+
+# Misc
 .DS_Store
+.env
+.npmrc
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
