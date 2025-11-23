@@ -1,0 +1,40 @@
+{
+    "name": "ai-yield-guard",
+    "version": "1.0.0",
+    "description": "An AI-assisted DeFi rebalancer powered by WDK",
+    "main": "dist/index.js",
+    "bin": {
+        "ai-yield-guard": "./dist/cli/runAgent.js"
+    },
+    "files": [
+        "dist",
+        "docs"
+    ],
+    "type": "module",
+    "scripts": {
+        "build": "tsc",
+        "start": "tsx src/cli/runAgent.ts",
+        "test": "tsx --test src/**/*.test.ts",
+        "lint": "ts-standard \"src/**/*.ts\"",
+        "lint:fix": "ts-standard \"src/**/*.ts\" --fix",
+        "docs:serve": "npx serve docs"
+    },
+    "ts-standard": {
+        "project": "./tsconfig.json"
+    },
+    "dependencies": {
+        "@tetherto/wdk-wallet-evm": "file:../../",
+        "dotenv": "^16.4.5",
+        "ethers": "^6.14.0",
+        "zod": "^3.23.8"
+    },
+    "devDependencies": {
+        "@bgd-labs/aave-address-book": "^4.36.0",
+        "@types/node": "^20.0.0",
+        "standard": "^17.1.2",
+        "ts-standard": "^12.0.2",
+        "tsx": "^4.7.0",
+        "typescript": "^5.4.0",
+        "viem": "^2.39.3"
+    }
+}
