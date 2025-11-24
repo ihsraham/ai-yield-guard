@@ -76,7 +76,15 @@ async function runCycle(
         }
       }
     } else {
-      console.warn(`[${timestamp}] ⚠️ Agent Identity missing. Continuing in watch mode...`)
+      console.log(`[${timestamp}] 🤖 Autonomous Mode: Auto-minting Identity...`)
+      try {
+        const hash = await identityClient.register(env.AGENT_NAME)
+        console.log(`✅ Identity Minted! Hash: ${hash}`)
+        console.log('Waiting 5s for propagation...')
+        await new Promise(resolve => setTimeout(resolve, 5000))
+      } catch (error) {
+        console.error('❌ Failed to register identity:', error)
+      }
     }
   } else if (!isWatchMode) {
     console.log('✅ On-Chain Sovereignty Established (ERC-8004 Identity).')
