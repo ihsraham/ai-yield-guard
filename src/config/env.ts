@@ -9,12 +9,16 @@ const envSchema = z.object({
   AAVE_ATOKEN_ADDRESS: z.string().regex(/^0x[a-fA-F0-9]{40}$/, 'Invalid Aave aToken Address'),
   AAVE_DATA_PROVIDER_ADDRESS: z.string().regex(/^0x[a-fA-F0-9]{40}$/, 'Invalid Aave Data Provider Address'),
   ERC8004_IDENTITY_REGISTRY: z.string().regex(/^0x[a-fA-F0-9]{40}$/, 'Invalid Identity Registry Address').default('0x8004AA63c570c570eBF15376c0dB199918BFe9Fb'),
-  AGENT_NAME: z.string().default('AI Yield Guard')
+  AGENT_NAME: z.string().default('AI Yield Guard'),
+
+  // Agent Strategy Configuration (Units in lowest decimal, e.g., 6 for USDT)
+  MIN_IDLE_BALANCE: z.string().default('1100000').transform((val) => BigInt(val)), // Default: 1.1 USDT
+  MIN_SUPPLY_UNIT: z.string().default('100000').transform((val) => BigInt(val)) // Default: 0.1 USDT
 })
 
 export type Env = z.infer<typeof envSchema>
 
-export function loadConfig (overrides?: Partial<Env>): Env {
+export function loadConfig(overrides?: Partial<Env>): Env {
   dotenv.config()
 
   const combinedEnv = {

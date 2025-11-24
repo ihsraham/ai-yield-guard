@@ -15,7 +15,7 @@
   <script>
     window.$docsify = {
       name: 'AI Yield Guard',
-      repo: 'https://github.com/tetherto/wdk-wallet-evm',
+      repo: 'https://github.com/ihsraham/ai-yield-guard',
       homepage: '00-overview.md',
       loadSidebar: true,
       subMaxLevel: 2,
@@ -28,7 +28,21 @@
   <!-- Mermaid -->
   <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-mermaid@latest/dist/docsify-mermaid.js"></script>
-  <script>mermaid.initialize({ startOnLoad: true });</script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'base',
+      themeVariables: {
+        primaryColor: 'rgb(66, 185, 131)',
+        primaryTextColor: 'rgb(0, 0, 0)',
+        primaryBorderColor: 'rgb(66, 185, 131)',
+        lineColor: 'rgb(66, 185, 131)',
+        secondaryColor: '#f0f0f0',
+        tertiaryColor: '#ffffff',
+        textColor: 'rgb(0, 0, 0)'
+      }
+    });
+  </script>
 </body>
 
 </html>

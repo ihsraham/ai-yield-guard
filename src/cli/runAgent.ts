@@ -7,11 +7,10 @@ import { AaveClient } from '../defi/AaveClient.js'
 import { getAgentIntent } from '../agent/AgentService.js'
 import { IdentityClient } from '../agent/IdentityClient.js'
 
-// Configuration constants (could be moved to env later)
-const MIN_IDLE_BALANCE = 1100000n // Example: 1 USDT (6 decimals)
-const MIN_SUPPLY_UNIT = 100000n // Example: 1 USDT
+// Configuration constants moved to env
 
-async function promptUser (query: string): Promise<string> {
+
+async function promptUser(query: string): Promise<string> {
   const rl = createInterface({
     input: process.stdin,
     output: process.stdout
@@ -26,7 +25,7 @@ async function promptUser (query: string): Promise<string> {
 }
 
 // Helper to parse arguments
-function parseArgs (): { watch: boolean, interval: number, seed?: string } {
+function parseArgs(): { watch: boolean, interval: number, seed?: string } {
   const args = process.argv.slice(2)
   const watch = args.includes('--watch') || args.includes('-w')
   const intervalIndex = args.indexOf('--interval')
@@ -45,7 +44,7 @@ function parseArgs (): { watch: boolean, interval: number, seed?: string } {
   return { watch, interval, seed }
 }
 
-async function runCycle (
+async function runCycle(
   wallet: WalletService,
   aaveClient: AaveClient,
   identityClient: IdentityClient,
@@ -91,8 +90,8 @@ async function runCycle (
   // 4. Get Agent Intent
   const intent = await getAgentIntent({
     aaveClient,
-    minIdleBalance: MIN_IDLE_BALANCE,
-    minSupplyUnit: MIN_SUPPLY_UNIT
+    minIdleBalance: env.MIN_IDLE_BALANCE,
+    minSupplyUnit: env.MIN_SUPPLY_UNIT
   })
 
   console.log(`🧠 Intent:  ${intent.action.toUpperCase()} (${intent.reason})`)
@@ -130,7 +129,7 @@ async function runCycle (
   console.log(`🔗 Hash: ${txHash}`)
 }
 
-async function main (): Promise<void> {
+async function main(): Promise<void> {
   console.log('🚀 Initializing Sovereign Financial Node...')
   console.log('===========================================')
 

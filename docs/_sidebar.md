@@ -6,4 +6,5 @@
 * [System Flows](06-flows.md)
 * [Troubleshooting](07-troubleshooting.md)
 * [Future Work](05-future-work.md)
+* [WDK Deep Dive](08-wdk-deep-dive.md)
 * [Dev Log](challenges-and-resolutions.md)
